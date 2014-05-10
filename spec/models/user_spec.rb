@@ -22,6 +22,10 @@ describe User do
 				result_val = @user.hello
 				result_val.should == 'テスト太郎でござる'
 			end
+			it 'user値がおかしい' do
+				result_val = @user.hello
+				result_val.should_not == 'でござる'
+			end
 		end
 
 	end
