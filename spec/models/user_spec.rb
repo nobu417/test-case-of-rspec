@@ -29,5 +29,44 @@ describe User do
 		end
 
 	end
+
+	describe "find_by_scope_named_myself method" do
+		# テストデータを入れる
+		before do
+			user = User.new
+			user.name = 'テスト太郎'
+			user.age = 30
+			user.profile = '私は、エンジニアです'
+			user.save
+			@user = User.myself('テスト太郎').first
+		end
+		# 実際のテスト
+		context 'normal case.' do
+			it '値の確認' do
+				@user.name.should == 'テスト太郎'
+			end
+		end
+	end
+
+	describe "find_by_scope_named_myage method" do
+		# テストデータを入れる
+		before do
+			user = User.new
+			user.name = 'テスト太郎'
+			user.age = 30
+			user.profile = '私は、エンジニアです'
+			user.save
+			@user = User.myage(30).first
+		end
+		# 実際のテスト
+		context 'normal case.' do
+			it '値の確認' do
+				@user.name.should == 'テスト太郎'
+			end
+		end
+
+
+	end
+
 end
 
