@@ -56,7 +56,7 @@ describe User do
 			user.age = 30
 			user.profile = '私は、エンジニアです'
 			user.save
-			@user = User.myage(30).first
+			@user = UserModelBase.search('テスト太郎')
 		end
 		# 実際のテスト
 		context 'normal case.' do
